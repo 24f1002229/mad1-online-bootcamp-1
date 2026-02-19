@@ -1,0 +1,23 @@
+{% extends "Admin_dashboard.html" %}
+{% block content %}
+
+<form action="/edit_course/{{course.id}}/{{email}}" method="POST">
+
+    <h1 style="text-align: center;"> Edit Course Page </h1>
+    <div class="mb-3">
+    <label for="exampleInputId" class="form-label"> Id </label>
+    <input type="Integer" class="form-control" id="exampleInputEmail1" name="id" value="{{course.id}}" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputtext" class="form-label"> Name </label>
+    <input type="text" class="form-control" id="exampleInputtext" name="name" value="{{course.name}}" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputtext" class="form-label">description</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="description" value="{{course.description}}" >
+  </div>
+  <button type="submit" class="btn btn-success">Submit</button>
+  <a href="/delete_course/{{course.id}}/{{email}}" type="button" class="btn btn-danger"> Delete </a>
+</form>
+
+{% endblock %}
