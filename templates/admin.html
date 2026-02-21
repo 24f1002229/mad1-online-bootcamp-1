@@ -1,24 +1,43 @@
 {% extends "Admin_dashboard.html" %}
 {% block content %}
 
-
 {% if courses %}
 <div class="row">
-{% for course in courses %}
-<div class="col">
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"> {{course.name}} </h5>
-    <a href="/edit_course/{{course.id}}/{{email}}" class="btn btn-primary"> Edit Courses </a>
-  </div>
-</div>
-</div>
-{% endfor %}
+    {% for course in courses %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> {{course.name}} </h5>
+                <div class="card">  
+                    {% if course.questions %}
+                    <table>
+                        <tr>
+                            <th> Question Id </th>
+                            <th> Question title </th>
+                            <th> Actions </th>
+                        </tr>
+                        {% for question in course.questions %}
+                        <tr>
+                            <td> {{question.id}} </td>
+                            <td> {{question.title}} </td>
+                            <td>
+                                <a href="/edit_question/{{question.id}}/{{email}}" class="btn btn-primary"> Edit Question </a>
+                                <a href="/delete_question/{{question.id}}/{{email}}" class="btn btn-danger"> Delete </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    {%  endif %}
+                <a href="/add_question/{{course.id}}/{{email}}" type="submit" class="btn btn-info"> + Add Question </a>
+                <a href="/edit_course/{{course.id}}/{{email}}" class="btn btn-primary"> Edit button </a>
+                <a href="/delete_course/{{course.id}}/{{email}}" class="btn btn-danger"> Delete </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endif %}
 
-<div> 
-    <a href="/add_course/{{email}}" class="btn btn-primary" type="button" style="justify-content: center;"> Add Courses </a>
-</div>
+<a href="/add_course/{{email}}" type="button" class="btn btn-primary"> Add button </a>
 
 {% endblock %}

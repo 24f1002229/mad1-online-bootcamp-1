@@ -1,22 +1,23 @@
 {% extends "Admin_dashboard.html" %}
 {% block content %}
 
-<form action="/add_course/{{email}}" method="POST">
+<form action="/add_course/{{email}}" method="POST" >
 
-    <h1 style="text-align: center;"> Add Course Page </h1>
-    <div class="mb-3">
-    <label for="exampleInputId" class="form-label"> Id </label>
-    <input type="Integer" class="form-control" id="exampleInputEmail1" name="id" >
+  <h1> Add Course  </h1>
+  <div class="mb-3">
+    <label for="number" class="form-label"> Id </label>
+    <input type="number" class="form-control" id="number" name="id" >
   </div>
   <div class="mb-3">
-    <label for="exampleInputtext" class="form-label"> Name </label>
-    <input type="text" class="form-control" id="exampleInputtext" name="name" >
+    <label for="text" class="form-label"> Name </label>
+    <input type="text" class="form-control" id="text" name="name" >
   </div>
   <div class="mb-3">
-    <label for="exampleInputtext" class="form-label">description</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" name="description" >
+    <label for="text" class="form-label"> description </label>
+    <input type="text" class="form-control" id="text" name="description" >
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-{% endblock %}
+
+{% endblock%}

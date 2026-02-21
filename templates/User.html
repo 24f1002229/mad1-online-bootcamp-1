@@ -3,16 +3,32 @@
 
 {% if courses %}
 <div class="row">
-{% for course in courses %}
-<div class="col">
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title"> {{course.name}} </h5>
-    <a href="#" class="btn btn-primary"> Course Quiz </a>
-  </div>
-</div>
-</div>
-{% endfor %}
+    {% for course in courses %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> {{course.name}} </h5>
+                {% if course.questions %}
+                <div class="card">
+                    <table>
+                        <tr>
+                            <th> Question Id </th>
+                            <th> Question title </th>
+                        </tr>
+                        {% for question in course.questions %}
+                        <tr>
+                            <td> {{question.id}} </td>
+                            <td> {{question.title}} </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {%  endif %}
+                <a href="#" class="btn btn-primary"> Quiz Start </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 {% endif %}
 
