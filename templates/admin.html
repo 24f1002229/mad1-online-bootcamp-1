@@ -8,7 +8,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title"> {{course.name}} </h5>
-                <div class="card">  
+                <div class="card">
                     {% if course.questions %}
                     <table>
                         <tr>
@@ -21,16 +21,17 @@
                             <td> {{question.id}} </td>
                             <td> {{question.title}} </td>
                             <td>
-                                <a href="/edit_question/{{question.id}}/{{email}}" class="btn btn-primary"> Edit Question </a>
-                                <a href="/delete_question/{{question.id}}/{{email}}" class="btn btn-danger"> Delete </a>
+                                <a href="/edit_question/{{question.id}}/{{email}}" class="btn btn-info"> Edit Question</a>
+                                <a href="/delete_question/{{question.id}}/{{email}}" class="btn btn-danger"> Delete Question</a>
                             </td>
                         </tr>
                         {% endfor %}
                     </table>
-                    {%  endif %}
-                <a href="/add_question/{{course.id}}/{{email}}" type="submit" class="btn btn-info"> + Add Question </a>
-                <a href="/edit_course/{{course.id}}/{{email}}" class="btn btn-primary"> Edit button </a>
-                <a href="/delete_course/{{course.id}}/{{email}}" class="btn btn-danger"> Delete </a>
+                    {% endif %}
+                </div>
+                <a href="/add_question/{{course.id}}/{{email}}" class="btn btn-info"> +Add Question </a>
+                <a href="/edit_course/{{course.id}}/{{email}}" class="btn btn-primary"> Edit Course </a>
+                <a href="/delete_course/{{course.id}}/{{email}}" class="btn btn-danger"> Delete Course </a>
             </div>
         </div>
     </div>

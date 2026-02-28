@@ -1,0 +1,33 @@
+{% extends "User_dashboard.html" %}
+{% block content %}
+
+<h2> Question {{current_question}} of {{total_questions}} </h2>
+<p> {{question.question_statement}} </p>
+
+<form method="POST">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" id="radioDefault1" value="{{question.option1}}" >
+        <label class="form-check-label" for="radioDefault1"> {{question.option1}} </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" id="radioDefault2" value="{{question.option2}}" >
+        <label class="form-check-label" for="radioDefault2"> {{question.option2}} </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" id="radioDefault1" value="{{question.option3}}"  >
+        <label class="form-check-label" for="radioDefault1"> {{question.option3}} </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" id="radioDefault2" value="{{question.option4}}" >
+        <label class="form-check-label" for="radioDefault2"> {{question.option4}} </label>
+    </div>
+    <button type="submit" class="btn btn-success">
+        {% if current_question == total_questions %}
+           Finish Quiz
+        {% else %}
+           Next
+        {% endif %}
+    </button>
+</form>
+
+{% endblock %}

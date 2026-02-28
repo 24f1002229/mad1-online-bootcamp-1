@@ -43,6 +43,7 @@ class Scores(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     time_stamp_of_attempt = db.Column(db.Time)
     total_scored = db.Column(db.Integer, default = 00)
+    course_id = db.Column(db.Integer, db.ForeignKey("course.id"), nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 

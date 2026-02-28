@@ -7,6 +7,7 @@ def setup():
     app = Flask(__name__)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///my_database"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.secret_key="mysecret1234"
     db.init_app(app) # connection between db and app
     app.app_context().push() #direct access to modules
     print("App is started !!")
